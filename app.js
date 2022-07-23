@@ -2,9 +2,11 @@ const API_KEY = 'api_key=02fbfc73d6702f6b0c3b8e7711a97e34';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-const main = document.getElementById('main')
-
-
+const SEARCH_URL = BASE_URL + '/search/movie?' +API_KEY;
+const main = document.getElementById('main');
+const form = document.getElementById('form');
+const search = document.getElementById('search');
+const button = document.getElementById('search-btn');
 
 getMovies(API_URL);
 
@@ -45,3 +47,15 @@ function getColor(vote) {
         return `red`
     }
 }
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const search_term = search.value;
+
+    if (search_term) {
+        getMovies(SEARCH_URL+ '&query=' + search_term)
+    }else{
+        getMovies(API_URL)
+    }
+})
+
