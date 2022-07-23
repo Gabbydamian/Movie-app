@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #2d2962;
+  --light: #285d95;
+  --darker: #201e3d;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--darker);
+  color: #fff;
+}
+
+header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--dark);
+  align-items: center;
+}
+
+#search {
+  background: transparent;
+  border: 2px solid var(--light);
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 24px;
+  font-family: inherit;
+  outline: none;
+  margin: 0 1rem;
+}
+
+#search:focus {
+  background-color: #272541;
+}
+
+#search::placeholder {
+  color: var(--light);
+}
+
+#search-btn {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.movie {
+  width: 300px;
+  margin: 1.2rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: floralwhite;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+}
+
+.movie-info span {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.movie-info span.green {
+  background-color: green;
+}
+
+.movie-info span.orange {
+  background-color: orange;
+}
+
+.movie-info span.red {
+  background-color: red;
+}
+
+.overview {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(101%);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  padding: 1rem;
+}
+
+.movie:hover .overview {
+  transform: translateY(0%);
+  background-color: var(--dark);
+}
+
+@media (max-width: 520px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    margin: 0 10px;
+    width: 100%;
+  }
+
+  #search {
+    width: 100%;
+  }
+}
